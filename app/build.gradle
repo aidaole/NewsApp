@@ -1,43 +1,29 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+//    id 'dagger.hilt.android.plugin'
 }
 
-android {
-    compileSdk BuildVersion.compileSdk
-    buildToolsVersion BuildVersion.buildToolsVersion
-
-    defaultConfig {
-        applicationId AppConfig.appId
-        minSdk BuildVersion.minSdk
-        targetSdk BuildVersion.targetSdk
-        versionCode AppConfig.versionCode
-        versionName AppConfig.versionName
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-}
+apply from: '../app.gradle'
 
 dependencies {
-    implementation Libs.coreKotlin
-    implementation Libs.appcompat
-    implementation Libs.material
-    implementation Libs.constraintLayout
-    testImplementation Libs.junit
-    androidTestImplementation Libs.testExtJunit
-    androidTestImplementation Libs.espresso
+    implementation(Libs.coreKotlin)
+    implementation(Libs.appcompat)
+    implementation(Libs.material)
+    implementation(Libs.constraintLayout)
+
+    implementation(Libs.livedata)
+    implementation(Libs.viewmodel)
+    implementation(Libs.nav_fragment)
+    implementation(Libs.nav_ui)
+    implementation(Libs.room)
+    kapt(Libs.room_compiler)
+
+//    implementation(Libs.hilt)
+//    kapt(Libs.hilt_compiler)
+
+    testImplementation(Libs.junit)
+    androidTestImplementation(Libs.test_ext_junit)
+    androidTestImplementation(Libs.espresso)
 }
