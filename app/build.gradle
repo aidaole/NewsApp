@@ -20,6 +20,10 @@ dependencies {
     implementation(Libs.room)
     kapt(Libs.room_compiler)
 
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofit_gson)
+    implementation(Libs.okhttp_log)
+
 //    implementation(Libs.hilt)
 //    kapt(Libs.hilt_compiler)
 

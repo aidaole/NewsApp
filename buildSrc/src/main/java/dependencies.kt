@@ -37,6 +37,16 @@ object Libs {
     const val coroutinues_version = "1.3.9"
     const val coroutinue = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinues_version"
 
+    const val retrofit_version = "2.9.0"
+    const val retrofit = "com.squareup.retrofit2:retrofit:$retrofit_version"
+    const val retrofit_gson = "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    const val okhttp_log = "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+    const val okhttp = "com.squareup.okhttp3:okhttp:3.14.9"
+    const val okio = "com.squareup.okio:okio:1.17.2"
+
+    const val gson = "com.google.code.gson:gson:2.8.6"
+
     // 测试依赖
     const val junit = "junit:junit:4.13.2"
     const val test_ext_junit = "androidx.test.ext:junit:1.1.2"

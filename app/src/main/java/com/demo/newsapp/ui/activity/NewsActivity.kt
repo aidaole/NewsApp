@@ -1,12 +1,23 @@
 package com.demo.newsapp.ui.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import com.demo.newsapp.R
+import com.demo.newsapp.base.BaseActivity
+import com.demo.newsapp.utils.logd
+import com.demo.newsapp.viewmodel.NewsViewModel
 
-class NewsActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_news)
+class NewsActivity : BaseActivity(R.layout.activity_news) {
+
+    private val newsVm by viewModels<NewsViewModel>()
+
+    override fun initViews() {
+    }
+
+    override fun initVm() {
+
+    }
+
+    override fun doAfterInit() {
+
     }
 }
