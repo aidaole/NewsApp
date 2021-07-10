@@ -47,6 +47,11 @@ object Libs {
 
     const val gson = "com.google.code.gson:gson:2.8.6"
 
+    const val glide_version = "4.11.0"
+    const val glide = "com.github.bumptech.glide:glide:$glide_version"
+    const val glide_compiler = "com.github.bumptech.glide:compiler:$glide_version"
+//    const val android_arch_life_compiler = "android.arch.lifecycle:compiler:1.0.0"
+
     // 测试依赖
     const val junit = "junit:junit:4.13.2"
     const val test_ext_junit = "androidx.test.ext:junit:1.1.2"

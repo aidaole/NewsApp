@@ -24,6 +24,10 @@ dependencies {
     implementation(Libs.retrofit_gson)
     implementation(Libs.okhttp_log)
 
+    implementation(Libs.glide)
+    kapt(Libs.glide_compiler)
+//    kapt(Libs.android_arch_life_compiler)
+
 //    implementation(Libs.hilt)
 //    kapt(Libs.hilt_compiler)
 

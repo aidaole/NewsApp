@@ -1,7 +1,7 @@
 package com.demo.newsapp.network.entity
 
-data class Resp<T>(
-    val `data`: List<T>,
+data class ChapterListResp(
+    val data: List<Chapter>,
     val errorCode: Int,
     val errorMsg: String
 )

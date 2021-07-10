@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.*
-import androidx.viewpager.widget.PagerAdapter
 import com.demo.newsapp.databinding.FragmentHomePageBinding
 import com.demo.newsapp.network.entity.Chapter
 import com.demo.newsapp.viewmodel.NewsViewModel
@@ -64,7 +63,7 @@ class HomePageFragment : Fragment() {
     }
 
     private class ChapterFragmentPagerAdatper(fm: FragmentManager) :
-        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        FragmentPagerAdapter(fm) {
 
         private val chapters = mutableListOf<Chapter>()
         private val fragments = mutableListOf<Fragment>()
@@ -77,7 +76,7 @@ class HomePageFragment : Fragment() {
 
         override fun getItem(position: Int): Fragment {
             if (position >= fragments.size) {
-                fragments.add(ChapterFragment.newInstance(chapters.get(position)))
+                fragments.add(ArticlesFragment.newInstance(chapters.get(position)))
             }
             return fragments.get(position)
         }
