@@ -3,24 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/news_nav_graph"
-    app:startDestination="@id/breakingNewsFragment">
-
+    app:startDestination="@id/homePageFragment">
     <fragment
-        android:id="@+id/breakingNewsFragment"
+        android:id="@+id/homePageFragment"
         android:name="com.demo.newsapp.ui.fragment.HomePageFragment"
-        android:label="BreakingNewsFragment" >
-        <action
-            android:id="@+id/action_breakingNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-    </fragment>
+        android:label="HomePageFragment" />
+    <fragment
+        android:id="@+id/publicTabFragment"
+        android:name="com.demo.newsapp.ui.fragment.PublicTabFragment"
+        android:label="PublicTabFragment" />
     <fragment
         android:id="@+id/searchNewsFragment"
         android:name="com.demo.newsapp.ui.fragment.SearchNewsFragment"
-        android:label="SearchNewsFragment" >
-        <action
-            android:id="@+id/action_searchNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-    </fragment>
+        android:label="SearchNewsFragment" />
     <fragment
         android:id="@+id/articleFragment"
         android:name="com.demo.newsapp.ui.fragment.ArticleDetailFragment"
@@ -28,9 +23,9 @@
     <fragment
         android:id="@+id/savedNewsFragment"
         android:name="com.demo.newsapp.ui.fragment.SavedNewsFragment"
-        android:label="SavedNewsFragment" >
-        <action
-            android:id="@+id/action_savedNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-    </fragment>
+        android:label="SavedNewsFragment" />
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.demo.newsapp.ui.fragment.UserFragment"
+        android:label="UserFragment" />
 </navigation>

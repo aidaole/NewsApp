@@ -4,20 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.demo.newsapp.GlideApp
-import com.demo.newsapp.R
 import com.demo.newsapp.databinding.ArticleItemViewBinding
 import com.demo.newsapp.databinding.FragmentChapterBinding
 import com.demo.newsapp.network.entity.Article
-import com.demo.newsapp.network.entity.Chapter
+import com.demo.newsapp.network.entity.PublicTab
 import com.demo.newsapp.viewmodel.ArticlesViewModel
 
 class ArticlesFragment : Fragment() {
@@ -29,10 +25,10 @@ class ArticlesFragment : Fragment() {
     private var adapter = ArticlesAdapter()
 
     companion object {
-        fun newInstance(chapter: Chapter) = ArticlesFragment().apply {
+        fun newInstance(publicTab: PublicTab) = ArticlesFragment().apply {
             arguments = bundleOf(
-                "name" to chapter.name,
-                "chapterId" to chapter.id
+                "name" to publicTab.name,
+                "chapterId" to publicTab.id
             )
         }
     }

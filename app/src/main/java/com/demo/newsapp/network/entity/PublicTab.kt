@@ -1,7 +1,6 @@
 package com.demo.newsapp.network.entity
 
-data class Chapter(
-    val children: List<Any>,
+data class PublicTab(
     val courseId: Int,
     val id: Int,
     val name: String,
