@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.demo.newsapp.GlideApp
 import com.demo.newsapp.databinding.FragmentBannerBinding
 import com.demo.newsapp.databinding.FragmentHomePageBinding
 import com.demo.newsapp.network.entity.Banner
+import com.demo.newsapp.ui.adapters.ArticlesAdapter
 import com.demo.newsapp.viewmodel.HomePagerViewModel
 
 class HomePageFragment : Fragment() {
@@ -20,6 +22,8 @@ class HomePageFragment : Fragment() {
     private val homePageVm: HomePagerViewModel by viewModels()
     private val bannerAdapter: BannerFragmentStateAdapter
             by lazy { BannerFragmentStateAdapter(this, emptyList()) }
+    private val articlesAdapter: ArticlesAdapter
+            by lazy { ArticlesAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +46,13 @@ class HomePageFragment : Fragment() {
                 bannerAdapter.updateDatas(it)
             }
         }
-
+        layout.recyclerview.adapter = articlesAdapter
+        layout.recyclerview.layoutManager = LinearLayoutManager(context)
+        homePageVm.articles.observe(viewLifecycleOwner) { articles ->
+            articles?.let {
+                articlesAdapter.updateDatas(it)
+            }
+        }
         afterInit()
     }
 
