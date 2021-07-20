@@ -1,11 +1,14 @@
 package com.demo.newsapp.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.newsapp.databinding.ArticleItemViewBinding
 import com.demo.newsapp.network.entity.Article
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>() {
 
@@ -33,11 +36,18 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
 
     override fun getItemCount(): Int = articles.size
 
-    class ArticleViewHolder(var binding: ArticleItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
+    @SuppressLint("SimpleDateFormat")
+    class ArticleViewHolder(var binding: ArticleItemViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        private val publishDateFormat by lazy { SimpleDateFormat("yyyy:MM:dd") }
 
         fun bind(article: Article) {
             binding.title.text = article.title
-            binding.desc.text = article.desc
+            binding.publishDate.text = publishDateFormat.format(Date(article.publishTime))
+            binding.author.text = article.author
+            if (article.tags.isNotEmpty()) {
+                binding.tag.text = article.tags[article.tags.size - 1].name
+            }
         }
     }
 }
