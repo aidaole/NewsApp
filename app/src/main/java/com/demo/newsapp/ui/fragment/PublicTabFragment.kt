@@ -15,6 +15,14 @@ class PublicTabFragment : Fragment() {
     private lateinit var layout: FragmentPublicTabBinding
     private val newsVm by activityViewModels<NewsViewModel>()
 
+    companion object {
+        fun create(bundle: Bundle): PublicTabFragment {
+            return PublicTabFragment().apply {
+                arguments = bundle
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

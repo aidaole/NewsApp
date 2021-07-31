@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.demo.newsapp.R
 
-class SearchNewsFragment: Fragment(R.layout.fragment_search_news) {
+class UserLoginFragment : Fragment(R.layout.fragment_login) {
 
     companion object {
-        fun create(bundle: Bundle): SearchNewsFragment {
-            return SearchNewsFragment().apply {
+        fun create(bundle: Bundle): UserLoginFragment {
+            return UserLoginFragment().apply {
                 arguments = bundle
             }
         }

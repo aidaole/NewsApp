@@ -20,6 +20,15 @@ import com.demo.newsapp.viewmodel.HomePagerViewModel
 
 class HomePageFragment : Fragment() {
 
+    companion object {
+        @JvmStatic
+        fun create(bundle: Bundle): HomePageFragment {
+            return HomePageFragment().apply {
+                arguments = bundle
+            }
+        }
+    }
+
     private lateinit var layout: FragmentHomePageBinding
     private val homePageVm: HomePagerViewModel by viewModels()
     private val bannerAdapter: BannerFragmentStateAdapter

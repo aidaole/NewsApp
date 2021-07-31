@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/start_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.demo.newsapp.ui.fragment.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/userLoginFragment"
+        android:name="com.demo.newsapp.ui.fragment.UserLoginFragment"
+        android:label="UserLoginFragment" />
+    <fragment
+        android:id="@+id/userRegisterFragment"
+        android:name="com.demo.newsapp.ui.fragment.UserRegisterFragment"
+        android:label="UserRegisterFragment" />
+</navigation>

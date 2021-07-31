@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsApp">
         <activity
-            android:name="com.demo.newsapp.ui.activity.NewsActivity"
+            android:name="com.demo.newsapp.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
