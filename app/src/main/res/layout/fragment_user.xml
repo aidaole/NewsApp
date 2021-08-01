@@ -10,9 +10,20 @@
         android:layout_height="100dp"
         android:layout_marginTop="80dp"
         android:src="@drawable/ic_launcher_background"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未登录"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/user_photo" />
 
     <LinearLayout
         android:id="@+id/login_layout"
@@ -43,8 +54,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/login_layout">
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/login_layout"></LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

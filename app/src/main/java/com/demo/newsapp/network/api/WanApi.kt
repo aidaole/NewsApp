@@ -2,13 +2,11 @@ package com.demo.newsapp.network.api
 
 import com.demo.newsapp.network.entity.ArticleListResp
 import com.demo.newsapp.network.entity.BannerResp
+import com.demo.newsapp.network.entity.LoginResp
 import com.demo.newsapp.network.entity.PublicTabListResp
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
-interface NewsApi {
+interface WanApi {
 
     @GET("wxarticle/chapters/json")
     suspend fun getChapters(): PublicTabListResp
@@ -27,6 +25,7 @@ interface NewsApi {
     @GET("banner/json")
     suspend fun getHomeBanners(): BannerResp
 
+    @FormUrlEncoded
     @POST("user/register")
     suspend fun register(
         @Field("username") username: String,
@@ -37,9 +36,10 @@ interface NewsApi {
     @GET("user/logout/json")
     suspend fun logout(): String
 
+    @FormUrlEncoded
     @POST("user/login")
     suspend fun login(
         @Field("username") username: String,
         @Field("password") password: String
-    ): String
+    ): LoginResp
 }

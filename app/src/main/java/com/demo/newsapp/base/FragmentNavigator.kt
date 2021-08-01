@@ -27,8 +27,8 @@ class FragmentNavigator(
         return findFragment(tag)
     }
 
-    fun <T : Fragment> getFragment(tag: String, bundle: Bundle, fragmentClz: Class<T>): T {
-        var fragment = findFragment(tag)
+    fun <T : Fragment> getFragment(bundle: Bundle, fragmentClz: Class<T>): T {
+        var fragment = findFragment(fragmentClz)
         if (fragment == null) {
             val method = fragmentClz.getMethod("create", Bundle::class.java)
             fragment = method.invoke(null, bundle) as T
@@ -43,13 +43,17 @@ class FragmentNavigator(
 
     fun show(tag: String, fragment: Fragment) {
         fragmentManager.beginTransaction().run {
-            curFragment?.let {
-                hide(it)
+            curFragment?.let { cur ->
+                hide(cur)
             }
             findFragment(tag) ?: add(containerId, fragment, tag)
             show(fragment)
             commit()
             curFragment = fragment
         }
+    }
+
+    fun remove(){
+        fragmentManager.fragments.size
     }
 }

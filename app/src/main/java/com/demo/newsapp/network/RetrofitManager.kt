@@ -1,6 +1,6 @@
 package com.demo.newsapp.network
 
-import com.demo.newsapp.network.api.NewsApi
+import com.demo.newsapp.network.api.WanApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -28,8 +28,9 @@ object RetrofitManager {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okhttpClient)
+            .addConverterFactory(StringConverterFactory)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    fun newsApi() = retrofit.create(NewsApi::class.java)
+    fun newsApi() = retrofit.create(WanApi::class.java)
 }
