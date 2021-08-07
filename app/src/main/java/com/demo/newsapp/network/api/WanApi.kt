@@ -31,7 +31,9 @@ interface WanApi {
         @Field("username") username: String,
         @Field("password") password: String,
         @Field("repassword") rePassword: String
-    ): String
+    ): LoginResp
+    // {"data":null,"errorCode":-1,"errorMsg":"用户名已经被注册！"}
+    // {"data":{"admin":false,"chapterTops":[],"coinCount":0,"collectIds":[],"email":"","icon":"","id":106960,"nickname":"testzhanghao123","password":"","publicName":"testzhanghao123","token":"","type":0,"username":"testzhanghao123"},"errorCode":0,"errorMsg":""}
 
     @GET("user/logout/json")
     suspend fun logout(): String

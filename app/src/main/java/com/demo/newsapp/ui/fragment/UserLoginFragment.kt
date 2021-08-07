@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.demo.newsapp.R
 import com.demo.newsapp.databinding.FragmentLoginBinding
+import com.demo.newsapp.network.entity.LoginResp
 import com.demo.newsapp.ui.activity.MainActivity
 import com.demo.newsapp.utils.toast
 import com.demo.newsapp.viewmodel.UserViewModel
@@ -47,15 +48,19 @@ class UserLoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun initVm() {
         vm.loginResp.observe(viewLifecycleOwner) { resp ->
-            if (resp == null || resp.errorCode != 0) {
-                if (resp.errorCode == UserViewModel.ERR_USER_SAVE) {
-                    "保存用户数据失败! ".toast(Toast.LENGTH_SHORT)
-                } else {
-                    "登录失败! Error: ${resp.errorMsg}".toast(Toast.LENGTH_SHORT)
-                }
+            doAfterLogin(resp)
+        }
+    }
+
+    private fun doAfterLogin(resp: LoginResp) {
+        if (resp.errorCode != 0) {
+            if (resp.errorCode == UserViewModel.ERR_USER_SAVE) {
+                "保存用户数据失败! ".toast(Toast.LENGTH_SHORT)
             } else {
-                (activity as MainActivity).navToMainFragment()
+                "登录失败! Error: ${resp.errorMsg}".toast(Toast.LENGTH_SHORT)
             }
+        } else {
+            (activity as MainActivity).navToMainFragment()
         }
     }
 }

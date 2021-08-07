@@ -42,4 +42,13 @@ class NewsRepo : INewsRepo {
     override suspend fun getUserInfo(userId: Int): User? = withContext(Dispatchers.IO) {
         return@withContext userDao.getUser(userId)
     }
+
+    override suspend fun doRegister(
+        username: String,
+        password: String,
+        repassword: String
+    ): LoginResp = withContext(Dispatchers.IO) {
+        return@withContext newsApi.register(username, password, repassword)
+    }
+
 }

@@ -13,4 +13,5 @@ interface INewsRepo {
     suspend fun doLogin(username: String, password: String): LoginResp
     suspend fun saveUserInfo(userinfo: UserInfo): User?
     suspend fun getUserInfo(userId: Int): User?
+    suspend fun doRegister(username: String, password: String, repassword: String): LoginResp
 }
