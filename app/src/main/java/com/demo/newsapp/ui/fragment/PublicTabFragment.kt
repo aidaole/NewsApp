@@ -68,26 +68,26 @@ class PublicTabFragment : Fragment() {
     private fun doAfterInit() {
         newsVm.loadChapters()
     }
-
-    private class PublicTabPagerAdapter(fm: FragmentManager) :
-        FragmentPagerAdapter(fm) {
-
-        private val chapters = mutableListOf<PublicTab>()
-        private val fragments = mutableListOf<Fragment>()
-
-        fun addItem(publicTab: PublicTab) {
-            chapters.add(publicTab)
-        }
-
-        override fun getCount(): Int = chapters.size
-
-        override fun getItem(position: Int): Fragment {
-            if (position >= fragments.size) {
-                fragments.add(ArticlesFragment.newInstance(chapters[position]))
-            }
-            return fragments[position]
-        }
-
-        override fun getPageTitle(position: Int): CharSequence = chapters[position].name
-    }
 }
+
+private class PublicTabPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+    private val chapters = mutableListOf<PublicTab>()
+    private val fragments = mutableListOf<Fragment>()
+
+    fun addItem(publicTab: PublicTab) {
+        chapters.add(publicTab)
+    }
+
+    override fun getCount(): Int = chapters.size
+
+    override fun getItem(position: Int): Fragment {
+        if (position >= fragments.size) {
+            fragments.add(ArticlesFragment.newInstance(chapters[position]))
+        }
+        return fragments[position]
+    }
+
+    override fun getPageTitle(position: Int): CharSequence = chapters[position].name
+}
+

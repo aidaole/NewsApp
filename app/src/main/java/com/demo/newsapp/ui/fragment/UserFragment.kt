@@ -9,6 +9,8 @@ import androidx.fragment.app.activityViewModels
 import com.demo.newsapp.R
 import com.demo.newsapp.databinding.FragmentUserBinding
 import com.demo.newsapp.ui.activity.MainActivity
+import com.demo.newsapp.utils.toGone
+import com.demo.newsapp.utils.toVisible
 import com.demo.newsapp.viewmodel.UserViewModel
 
 class UserFragment : Fragment(R.layout.fragment_user) {
@@ -55,7 +57,12 @@ class UserFragment : Fragment(R.layout.fragment_user) {
         userVm.user.observe(viewLifecycleOwner) { user ->
             if (user != null) {
                 layout.tvUsername.text = user.nickname
-                layout.loginLayout.visibility = View.GONE
+                layout.tvUsername.toVisible()
+                layout.loginLayout.toGone()
+            } else {
+                layout.tvUsername.text = getString(R.string.not_login)
+                layout.tvUsername.toGone()
+                layout.loginLayout.toVisible()
             }
         }
     }

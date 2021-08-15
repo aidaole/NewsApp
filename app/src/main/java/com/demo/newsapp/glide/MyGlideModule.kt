@@ -1,4 +1,4 @@
-package com.demo.newsapp
+package com.demo.newsapp.glide
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

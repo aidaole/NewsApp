@@ -5,4 +5,6 @@
 
     <string name="RecyclerViewBehavior">com.demo.newsapp.widget.RecyclerViewBehavior</string>
     <string name="BannerBehavior">com.demo.newsapp.widget.BannerBehavior</string>
+
+    <string name="not_login">未登录</string>
 </resources>

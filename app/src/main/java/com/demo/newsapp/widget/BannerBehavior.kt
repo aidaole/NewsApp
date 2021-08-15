@@ -53,8 +53,6 @@ class BannerBehavior(context: Context? = null, attrs: AttributeSet? = null) :
     ) {
         super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed, type)
         if (target is RecyclerView) {
-            "bannerY: ${child.translationY}  dy:${dy}  bannerH:${child.height}  canScroll:${target.canScrollVertically(-1)}".logd()
-
             if (dy > 0 && child.translationY.toInt() == -child.height) {
                 // 如果向上滑，并且banner已经全部隐藏。交给recyclerview
                 return

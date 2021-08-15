@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.newsapp.databinding.ArticleItemViewBinding
 import com.demo.newsapp.network.entity.Article
+import com.demo.newsapp.utils.toGone
+import com.demo.newsapp.utils.toVisible
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,8 +23,6 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
         articles = newArticles
         result.dispatchUpdatesTo(this)
     }
-
-    fun getDatas(): List<Article> = articles
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         layout = ArticleItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -47,13 +47,15 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
             binding.author.text = article.author
             if (article.tags.isNotEmpty()) {
                 binding.tag.text = article.tags[article.tags.size - 1].name
+                binding.tag.toVisible()
+            } else {
+                binding.tag.toGone()
             }
         }
     }
 }
 
-
-class ArticlesDiffCallback(val oldList: List<Article>, val newList: List<Article>) :
+class ArticlesDiffCallback(private val oldList: List<Article>, private val newList: List<Article>) :
     DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {
@@ -69,7 +71,7 @@ class ArticlesDiffCallback(val oldList: List<Article>, val newList: List<Article
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldItem = oldList[oldItemPosition]
-        val newItem = oldList[newItemPosition]
+        val newItem = newList[newItemPosition]
         return oldItem.id == newItem.id
     }
 }

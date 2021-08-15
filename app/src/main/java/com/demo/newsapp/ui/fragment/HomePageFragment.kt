@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.demo.newsapp.GlideApp
 import com.demo.newsapp.databinding.FragmentBannerBinding
 import com.demo.newsapp.databinding.FragmentHomePageBinding
+import com.demo.newsapp.glide.GlideApp
 import com.demo.newsapp.network.entity.Banner
 import com.demo.newsapp.ui.adapters.ArticlesAdapter
 import com.demo.newsapp.utils.toast
@@ -119,7 +118,7 @@ class BannerFragment : Fragment() {
             .into(layout.bannerImage)
         layout.bannerDesc.text = desc
         layout.bannerImage.setOnClickListener {
-            "click ${url}".toast()
+            "click $url".toast()
         }
     }
 }
