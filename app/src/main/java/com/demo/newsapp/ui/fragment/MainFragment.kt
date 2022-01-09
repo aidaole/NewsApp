@@ -50,41 +50,39 @@ class MainFragment : Fragment() {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.menu_home -> {
-                        fragmentNav.findFragment(HomePageFragment::class.java)?.run {
-                            fragmentNav.show(this)
-                        } ?: run {
-                            fragmentNav.show(HomePageFragment.create(Bundle()))
+                        showFragment(HomePageFragment::class.java) {
+                            HomePageFragment.create(Bundle())
                         }
                     }
                     R.id.menu_public_tab -> {
-                        fragmentNav.findFragment(PublicTabFragment::class.java)?.run {
-                            fragmentNav.show(this)
-                        } ?: run {
-                            fragmentNav.show(PublicTabFragment.create(Bundle()))
+                        showFragment(PublicTabFragment::class.java) {
+                            PublicTabFragment.create(Bundle())
                         }
                     }
                     R.id.menu_search -> {
-                        fragmentNav.findFragment(SearchNewsFragment::class.java)?.run {
-                            fragmentNav.show(this)
-                        } ?: run {
-                            fragmentNav.show(SearchNewsFragment.create(Bundle()))
+                        showFragment(SearchNewsFragment::class.java) {
+                            SearchNewsFragment.create(Bundle())
                         }
                     }
                     R.id.menu_user -> {
-                        fragmentNav.findFragment(UserFragment::class.java)?.run {
-                            fragmentNav.show(this)
-                        } ?: run {
-                            fragmentNav.show(UserFragment.create(Bundle()))
+                        showFragment(UserFragment::class.java) {
+                            UserFragment.create(Bundle())
                         }
                     }
                 }
                 return true
             }
         })
-        fragmentNav.findFragment(HomePageFragment::class.java)?.run {
+        showFragment(HomePageFragment::class.java) {
+            HomePageFragment.create(Bundle())
+        }
+    }
+
+    private fun <T> showFragment(clz: Class<T>, createFragment: () -> Fragment) {
+        fragmentNav.findFragment(clz)?.run {
             fragmentNav.show(this)
         } ?: run {
-            fragmentNav.show(HomePageFragment.create(Bundle()))
+            fragmentNav.show(createFragment())
         }
     }
 }

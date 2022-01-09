@@ -10,6 +10,7 @@ import com.demo.newsapp.network.entity.UserInfo
 import com.demo.newsapp.repo.NewsRepo
 import com.demo.newsapp.utils.Sp
 import com.demo.newsapp.utils.logd
+import com.demo.newsapp.utils.toast
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 
@@ -61,6 +62,9 @@ class UserViewModel : ViewModel() {
             repo.getUserInfo(lastLoginUserId)?.let {
                 "加载上一次登录用户成功${it.nickname}".logd()
                 _user.value = it
+            } ?: run {
+                _user.value = null
+                "没有用户,加载空页面".logd()
             }
         }
     }

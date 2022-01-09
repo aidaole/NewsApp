@@ -24,15 +24,16 @@ class HomePagerViewModel : ViewModel() {
         get() = _articles
 
     fun loadDatas() {
-        "home page load data start".logd()
+        "开始加载首页数据".logd()
         viewModelScope.launch {
             val resp = newsApi.getHomeBanners()
             _banners.value = resp.data
-        }
-        viewModelScope.launch {
-            val resp = newsApi.getHomePageArticles(_page)
-            _articles.value = resp.data.datas
-            _page = resp.data.curPage
+            "加载banner内容完成".logd()
+
+            val articleResp = newsApi.getHomePageArticles(_page)
+            _articles.value = articleResp.data.datas
+            _page = articleResp.data.curPage
+            "加载article内容完成".logd()
         }
     }
 }

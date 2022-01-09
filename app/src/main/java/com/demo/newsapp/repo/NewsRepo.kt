@@ -7,10 +7,8 @@ import com.demo.newsapp.network.RetrofitManager
 import com.demo.newsapp.network.entity.LoginResp
 import com.demo.newsapp.network.entity.UserInfo
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.withContext
 
-@ExperimentalCoroutinesApi
 class NewsRepo : INewsRepo {
 
     private val newsApi = RetrofitManager.newsApi()
@@ -50,5 +48,4 @@ class NewsRepo : INewsRepo {
     ): LoginResp = withContext(Dispatchers.IO) {
         return@withContext newsApi.register(username, password, repassword)
     }
-
 }

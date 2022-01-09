@@ -9,8 +9,7 @@ import androidx.fragment.app.activityViewModels
 import com.demo.newsapp.R
 import com.demo.newsapp.databinding.FragmentUserBinding
 import com.demo.newsapp.ui.activity.MainActivity
-import com.demo.newsapp.utils.toGone
-import com.demo.newsapp.utils.toVisible
+import com.demo.newsapp.utils.*
 import com.demo.newsapp.viewmodel.UserViewModel
 
 class UserFragment : Fragment(R.layout.fragment_user) {
