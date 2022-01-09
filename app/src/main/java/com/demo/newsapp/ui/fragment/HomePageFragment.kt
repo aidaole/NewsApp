@@ -63,10 +63,10 @@ class HomePageFragment : Fragment() {
                 articlesAdapter.updateDatas(it)
             }
         }
-        afterInit()
+        doAfterInit()
     }
 
-    private fun afterInit() {
+    private fun doAfterInit() {
         homePageVm.loadDatas()
     }
 }

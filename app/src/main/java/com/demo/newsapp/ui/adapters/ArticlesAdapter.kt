@@ -3,6 +3,7 @@ package com.demo.newsapp.ui.adapters
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.newsapp.databinding.ArticleItemViewBinding
@@ -48,6 +49,7 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
             if (article.tags.isNotEmpty()) {
                 binding.tag.text = article.tags[article.tags.size - 1].name
                 binding.tag.toVisible()
+                (binding.title.layoutParams as MarginLayoutParams).leftMargin = 20
             } else {
                 binding.tag.toGone()
             }

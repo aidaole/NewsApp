@@ -9,20 +9,6 @@
     android:paddingRight="40dp"
     android:paddingBottom="15dp">
 
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:ellipsize="end"
-        android:singleLine="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toRightOf="@id/tag"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="标题" />
-
     <TextView
         android:id="@+id/tag"
         android:layout_width="wrap_content"
@@ -36,6 +22,17 @@
         app:layout_constraintTop_toTopOf="@id/title"
         tools:text="tag" />
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@id/tag"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="标题" />
 
     <TextView
         android:id="@+id/author"
@@ -44,16 +41,17 @@
         android:layout_marginTop="14dp"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="@id/tag"
-        app:layout_constraintTop_toBottomOf="@id/tag"
+        app:layout_constraintTop_toBottomOf="@id/title"
         tools:text="author" />
 
     <TextView
         android:id="@+id/publishDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:textSize="14sp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/author"
+        app:layout_constraintTop_toBottomOf="@id/title"
         tools:text="2021.04.01" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
